@@ -43,4 +43,19 @@ func main() {
 	fmt.Println("clear :")
 	list.Clear()
 	fmt.Println("length :",list.Length())
+	
+	//线性表顺序表
+	list2 := ds.NewSqList()
+	list2.Insert(0,1)
+	list2.Insert(1,2)
+	list2.Insert(2,3)
+	list2.Insert(3,4)
+	list2.Display()
+	d,_ := list2.Get(2)
+	fmt.Println("Get :",d)
+	fmt.Println("IndexOf :",list2.IndexOf(4))
+	list.Remove(2)
+	fmt.Println("Remove : ")
+	list2.Display()
+	fmt.Println(list2.Length())
 }
