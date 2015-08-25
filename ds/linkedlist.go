@@ -8,6 +8,32 @@ import (
 	"fmt"
 )
 
+//链表结点
+type Node struct {
+	data interface{} //结点值
+	next *Node //后继结点
+}
+
+func NewNode(data interface{}, next *Node) *Node {
+	return &Node{data:data, next:next}
+}
+
+func (this *Node) SetData(data interface{}) {
+	this.data = data
+}
+
+func (this *Node) GetData() interface{} {
+	return this.data
+}
+
+func (this *Node) SetNext(next *Node) {
+	this.next = next
+}
+
+func (this *Node) GetNext() *Node {
+	return this.next
+}
+
 // 线性表链表实现
 type LinkedList struct {
 	head *Node
@@ -36,6 +62,11 @@ func NewLinkedList(n int, order bool) (list List) {
 		}
 		return list
 	}
+}
+
+func NewLinkedList2() *LinkedList {
+	node := NewNode(nil,nil)
+	return &LinkedList{node}
 }
 
 func (this *LinkedList) Length() int {
@@ -128,4 +159,19 @@ func (this *LinkedList) Display() {
 		fmt.Printf("%v ",p.GetData())
 	}
 	fmt.Println()
+}
+
+// 反转链表
+func (this *LinkedList) Reverse() {
+	// 第一个结点
+	first := this.head.GetNext()
+	var prev *Node
+	// 反转完成后第一个结点的下一个结点就是nil
+	for first != nil {
+		next := first.GetNext()
+		first.SetNext(prev)
+		prev = first
+		first = next
+	}
+	this.head.SetNext(prev)
 }

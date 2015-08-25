@@ -3,17 +3,17 @@ package main
 
 import (
 	//"strings"
-	"strconv"
-	"os"
-	"bufio"
+	//"strconv"
+	//"os"
+	//"bufio"
 	"fmt"
 	"github.com/Comdex/datastructure/ds"
 )
 
 func main() {
 	
-	list := ds.NewLinkedList(4,false)
-	list.Display()
+//	list := ds.NewLinkedList(4,false)
+//	list.Display()
 	
 //	fmt.Println("please insert: index,data")
 //	scanner := bufio.NewScanner(os.Stdin)
@@ -27,22 +27,30 @@ func main() {
 //	list.Insert(i,j)
 //	list.Display()
 	
-	fmt.Println("please insert: index")
-	scanner := bufio.NewScanner(os.Stdin)
-	t := ""
-      	if scanner.Scan() {
-		t = scanner.Text()	
-	}
+//	fmt.Println("please insert: index")
+//	scanner := bufio.NewScanner(os.Stdin)
+//	t := ""
+//      	if scanner.Scan() {
+//		t = scanner.Text()	
+//	}
 	
-	i,_ := strconv.Atoi(t)
-	fmt.Println(list.IndexOf(i))
+//	i,_ := strconv.Atoi(t)
+//	fmt.Println(list.IndexOf(i))
+//	list.Display()
+	
+//	fmt.Println("is Empty: ",list.IsEmpty())
+//	fmt.Println("length :",list.Length())
+//	fmt.Println("clear :")
+//	list.Clear()
+//	fmt.Println("length :",list.Length())
+	list := ds.NewLinkedList2()
+	list.Insert(0,55)
+	list.Insert(1,66)
+	list.Insert(2,77)
 	list.Display()
-	
-	fmt.Println("is Empty: ",list.IsEmpty())
-	fmt.Println("length :",list.Length())
-	fmt.Println("clear :")
-	list.Clear()
-	fmt.Println("length :",list.Length())
+	fmt.Println("翻转后:")
+	list.Reverse()
+	list.Display()
 	
 	//线性表顺序表
 	list2 := ds.NewSqList()
