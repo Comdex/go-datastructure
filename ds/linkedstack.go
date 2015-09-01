@@ -4,33 +4,8 @@ import (
 	"fmt"
 )
 
-type LinkedNode struct {
-	data interface{}
-	next *LinkedNode
-}
-func NewLinkedNode(data interface{}, next *LinkedNode) *LinkedNode {
-	return &LinkedNode{data, next}
-}
-
-func (this *LinkedNode) SetData(data interface{}) {
-	this.data = data
-}
-
-func (this *LinkedNode) GetData() interface{} {
-	return this.data
-}
-
-func (this *LinkedNode) SetNext(next *LinkedNode) {
-	this.next = next
-}
-
-func (this *LinkedNode) GetNext() *LinkedNode {
-	return this.next
-}
-
-
 type LinkedStack struct {
-	top *LinkedNode
+	top *Node
 }
 func NewLinkedStack() Stack {
 	return &LinkedStack{nil}
@@ -60,9 +35,9 @@ func (this *LinkedStack) Peek() interface{} {
 
 func (this *LinkedStack) Push(data interface{}) error {
 	if this.top == nil {
-		this.top = NewLinkedNode(data, nil)
+		this.top = NewNode(data, nil)
 	}else{
-		node := NewLinkedNode(data,this.top)
+		node := NewNode(data,this.top)
 		this.top = node
 	}
 	return nil
